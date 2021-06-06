@@ -17,6 +17,8 @@ def check_rounds():
                 print(round_error)
                 continue
 
+        return response
+
 rounds_played = 0
 choose_instructions = "Please choose rock (r), paper (p) or scissors (s)"
 
@@ -42,4 +44,9 @@ while end_game == "no":
             end_game = "yes"
 
 # rest of loop / game
-print("You chose {}".format(choose))
+    print("You chose {}".format(choose))
+
+    rounds_played += 1
+
+print("Thank you for playing")
+
