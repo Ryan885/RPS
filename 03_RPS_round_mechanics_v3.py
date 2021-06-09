@@ -1,4 +1,4 @@
-# Bad videos. Skipped over the entire first version of this.
+# Main routine more efficient than v2
 
 def check_rounds():
     while True:
