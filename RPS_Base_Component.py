@@ -76,7 +76,7 @@ while end_game == "no":
         heading = "Round {} of {}".format(rounds_played + 1, rounds)
 
     print(heading)
-    choose_instructions = "Please choose rock (r), paper (p) or scissors (s) or 'xxx' to quit"
+    choose_instructions = "Please choose rock (r), paper (p) or scissors (s) or 'xxx' to quit: "
     choose_error = "Please choose from rock / paper / scissors (or xxx to exit): "
 
     # Ask user for choice and check it is valid
