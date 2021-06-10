@@ -26,6 +26,25 @@ def check_rounds():
 
         return response
 
+def choice_checker(question, valid_list, error):
+
+    valid = False
+    while not valid:
+
+        # Ask user for choice (and put choice in lowercase)
+        response = input(question).lower()
+
+        # iterates through list and if response is an item
+        # in the list (or the first letter of an item), the
+        # full item name is returned
+
+        for item in valid_list:
+            if response == item[0] or response == item:
+                return item
+
+        # output error
+        print(error)
+        print()
 
 # Main routine goes here
 
@@ -47,27 +66,35 @@ rounds = check_rounds()
 end_game = "no"
 while end_game == "no":
 
-    # Start of Game Play Loop
-
+    # Start of game play loop
     # Rounds heading
+
     print()
     if rounds == "":
-        heading = "Continuous Mode: Round {}".format(rounds_played)
-        print(heading)
-        choose = input("{} or 'xxx' to  end: ".format(choose_instructions))
-        if choose == "xxx":
-            break
+        heading = "Continuous Mode: Round {}".format(rounds_played + 1)
     else:
         heading = "Round {} of {}".format(rounds_played + 1, rounds)
-        print(heading)
-        choose = input(choose_instructions)
-        if rounds_played == rounds - 1:
-            end_game = "yes"
 
+    print(heading)
+    choose_instructions = "Please choose rock (r), paper (p) or scissors (s) or 'xxx' to quit"
+    choose_error = "Please choose from rock / paper / scissors (or xxx to exit): "
+
+    # Ask user for choice and check it is valid
+    choose = choice_checker(choose_instructions, rps_list, choose_error)
+
+    # End game if exit code is typed
+    if choose == "xxx":
+        break
+    elif rounds == "":
+        end_game = "no"
+    elif rounds_played == rounds - 1:
+        end_game = "yes"
+    else:
+        end_game = "no"
 # rest of loop / game
     print("You chose {}".format(choose))
-
     rounds_played += 1
+
 
 
 
